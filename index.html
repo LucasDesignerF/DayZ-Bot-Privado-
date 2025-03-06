@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="https://external-preview.redd.it/ipGvr3btejlWJZz88nm8efU9dkgOFA4bXyUFeqjKHBk.png?auto=webp&s=1f98c11b589aa9a45961999982d3aba4256cb01c">
+    <!-- Meta Tags -->
+    <meta name="description" content="Documentação oficial do Bot-Manager-DayZ, um bot moderno para gerenciar servidores DayZ no Discord, desenvolvido pela CodeProjects e RedeGamer.">
+    <meta property="og:title" content="Documentação Bot-Manager-DayZ">
+    <meta property="og:description" content="Documentação oficial do Bot-Manager-DayZ, um bot moderno para gerenciar servidores DayZ no Discord, desenvolvido pela CodeProjects e RedeGamer.">
+    <meta property="og:image" content="https://fontmeme.com/images/Dayz-Game.jpg">
+    <meta property="og:url" content="https://dayz-doc.redebots.shop/">
+    <meta property="og:type" content="website">
+    <title>Documentação Bot-Manager-DayZ</title>
+    <!-- TailwindCSS CDN (versão estável mais recente) -->
+    <script src="https://cdn.tailwindcss.com/3.4.1"></script>
+    <!-- FontAwesome CDN via Cloudflare -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2Lw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            background-image: url('https://i.redd.it/1slxyfuti69y.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-color: #1a1a1a;
+            color: #e5e5e5;
+            font-family: 'Courier New', Courier, monospace;
+            animation: fadeIn 1s ease-in;
+        }
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+        .section-title {
+            border-bottom: 3px solid #8b0000;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #8b0000, transparent);
+            box-shadow: 0 2px 10px rgba(139, 0, 0, 0.3);
+        }
+        .card {
+            background-color: rgba(34, 34, 34, 0.95);
+            border: 1px solid #444;
+            border-radius: 0.5rem;
+            padding: 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 20px rgba(139, 0, 0, 0.2);
+        }
+        .highlight {
+            background-color: #4a2c2a;
+            padding: 0.5rem;
+            border-radius: 0.3rem;
+            display: inline-block;
+        }
+        .icon {
+            color: #8b0000;
+        }
+        .header-icon {
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+            100% { transform: scale(1); }
+        }
+        pre {
+            max-width: 100%;
+            overflow-x: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #8b0000 #333;
+        }
+        footer {
+            background-color: rgba(116, 6, 6, 0.5);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+        /* Responsividade */
+        @media (max-width: 768px) {
+            .container {
+                padding-left: 1rem;
+                padding-right: 1rem;
+            }
+            h1 {
+                font-size: 2.5rem;
+            }
+            h2 {
+                font-size: 1.75rem;
+            }
+            h3 {
+                font-size: 1.25rem;
+            }
+            p, li {
+                font-size: 0.9rem;
+            }
+            .card {
+                padding: 1rem;
+            }
+            .section-title {
+                margin-bottom: 0.5rem;
+            }
+            .header-logo {
+                max-width: 250px;
+            }
+        }
+    </style>
+</head>
+<body class="min-h-screen">
+    <header class="text-center py-10">
+        <!-- Logo do DayZ -->
+        <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d8827203-d7df-4f8f-a846-62430fe5169d/d59zm2x-29cd82d0-3b58-4023-8bfd-50fea4cef6be.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4ODI3MjAzLWQ3ZGYtNGY4Zi1hODQ2LTYyNDMwZmU1MTY5ZFwvZDU5em0yeC0yOWNkODJkMC0zYjU4LTQwMjMtOGJmZC01MGZlYTRjZWY2YmUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OSJ3kN9ISyZFyUotHlbt2L91g-oyVCJ2k0UOP4Rkno0" alt="Logo DayZ" class="header-logo mx-auto mb-4" style="max-width: 300px;">
+        <h1 class="text-5xl font-bold text-white drop-shadow-lg">
+            <i class="fas fa-skull-crossbones icon mr-2 header-icon"></i> Documentação Bot-Manager-DayZ
+        </h1>
+        <p class="text-lg text-gray-300 mt-2">Um Bot Moderno para Servidores DayZ no Discord</p>
+    </header>
+
+    <main class="container mx-auto px-6 py-10">
+        <!-- Seção: Visão Geral do Projeto -->
+        <section class="card">
+            <h2 class="text-3xl section-title text-gray-200">
+                <i class="fas fa-book icon mr-2"></i> Visão Geral do Projeto
+            </h2>
+            <p class="text-gray-300 mb-4">
+                O projeto <span class="highlight">Bot-Manager-DayZ</span> é um bot para Discord desenvolvido para gerenciar servidores DayZ hospedados na Nitrado. Ele foi inicialmente baseado num bot JavaScript chamado <span class="highlight">DayZero KillFeed</span>, mas foi totalmente reescrito em Python usando a biblioteca <span class="highlight">Nextcord</span> para interações no Discord, <span class="highlight">PyMongo</span> para gerenciamento de banco de dados MongoDB e uma estrutura modular com cogs.
+            </p>
+            <p class="text-gray-300 mb-4">
+                O bot foi projetado com foco em três prioridades principais definidas pelo cliente:
+            </p>
+            <ul class="list-disc list-inside text-gray-300 mb-4">
+                <li><strong>Logs detalhados de mortes PvE:</strong> Notificações detalhadas com localização no mapa usando links para o iZurvive.</li>
+                <li><strong>Logs detalhados de mortes PvP:</strong> Similar ao PvE, mas com informações sobre assassino, vítima e arma usada.</li>
+                <li><strong>Sistema de procurados:</strong> Um sistema configurável para adicionar, remover e listar jogadores procurados, com atualizações periódicas de localização.</li>
+            </ul>
+            <p class="text-gray-300">
+                Além disso, o bot foi redesenhado para usar interfaces modernas e interativas (embeds com botões, menus dropdown e modals) ao invés de depender apenas de comandos slash, melhorando a experiência visual e a usabilidade para os usuários.
+            </p>
+        </section>
+
+        <!-- Seção: Estrutura do Projeto -->
+        <section class="card">
+            <h2 class="text-3xl section-title text-gray-200">
+                <i class="fas fa-folder-open icon mr-2"></i> Estrutura do Projeto
+            </h2>
+            <p class="text-gray-300 mb-4">
+                O projeto está organizado de forma modular para facilitar manutenção e expansão futura. Abaixo está a estrutura de diretórios:
+            </p>
+            <pre class="highlight text-gray-300 p-4 rounded-lg">
+Bot-Manager-DayZ/
+│
+├── cogs/                       # Pasta para os cogs
+│   ├── interfaces/             # Módulo para interfaces interativas
+│   │   ├── logs_interface.py   # Interface para logs PvE/PvP
+│   │   ├── wanted_interface.py # Interface para sistema de procurados
+│   │   ├── lists_interface.py  # Interface para gerenciamento de listas
+│   │   └── admin_interface.py  # Interface para comandos administrativos
+│   ├── utils/                  # Módulo para utilitários
+│   │   ├── api_manager.py      # Gerencia chamadas à API da Nitrado
+│   │   ├── map_utils.py        # Funções para lidar com mapas e localização
+│   │   └── db_manager.py       # Gerencia o banco de dados MongoDB
+│
+├── config/                     # Configurações
+│   └── config.py               # Arquivo de configuração
+│
+├── main.py                     # Arquivo principal
+├── requirements.txt            # Dependências
+└── .env                        # Variáveis de ambiente
+            </pre>
+        </section>
+
+        <!-- Seção: Funcionalidades Implementadas -->
+        <section class="card">
+            <h2 class="text-3xl section-title text-gray-200">
+                <i class="fas fa-check-circle icon mr-2"></i> Funcionalidades Implementadas
+            </h2>
+
+            <!-- Funcionalidade 1: Logs PvE/PvP -->
+            <div class="mb-6">
+                <h3 class="text-2xl text-gray-200 mb-2"><i class="fas fa-scroll icon mr-2"></i> Logs Detalhados de Mortes PvE e PvP</h3>
+                <p class="text-gray-300 mb-2">
+                    O bot monitora os logs do servidor (baixados via API da Nitrado) para detectar mortes PvE e PvP e envia notificações detalhadas para canais específicos no Discord.
+                </p>
+                <ul class="list-disc list-inside text-gray-300 mb-2">
+                    <li><strong>Interface:</strong> Acessada pelo comando <code>/logs</code>, que abre um embed com botões para iniciar/parar os killfeeds PvE e PvP, ativar/desativar exibição de localização e selecionar mapas (Chernarus ou Livonia).</li>
+                    <li><strong>Detalhes:</strong> Os logs PvE mostram o jogador, a causa (ex.: zumbi, dano de queda) e a localização; os logs PvP mostram assassino, vítima, arma e localização.</li>
+                    <li><strong>Implementação:</strong> Usa a biblioteca <code>watchdog</code> para monitoramento de logs e regex para identificar eventos de morte.</li>
+                </ul>
+            </div>
+
+            <!-- Funcionalidade 2: Sistema de Procurados -->
+            <div class="mb-6">
+                <h3 class="text-2xl text-gray-200 mb-2"><i class="fas fa-skull icon mr-2"></i> Sistema de Procurados</h3>
+                <p class="text-gray-300 mb-2">
+                    Um sistema configurável para gerenciar uma lista de jogadores procurados, com permissões restritas a papéis específicos (ex.: Admin, PM).
+                </p>
+                <ul class="list-disc list-inside text-gray-300 mb-2">
+                    <li><strong>Interface:</strong> Acessada pelo comando <code>/procurados</code>, que abre um embed com botões para adicionar/remover/listar procurados e ativar/desativar atualizações periódicas de localização.</li>
+                    <li><strong>Detalhes:</strong> Adicionar um jogador abre um modal para inserir nome e motivo; as atualizações periódicas (a cada 5 minutos) enviam embeds com localização, se ativadas.</li>
+                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar a lista de procurados e tarefas do Nextcord para atualizações periódicas.</li>
+                </ul>
+            </div>
+
+            <!-- Funcionalidade 3: Gerenciamento de Listas -->
+            <div class="mb-6">
+                <h3 class="text-2xl text-gray-200 mb-2"><i class="fas fa-list icon mr-2"></i> Gerenciamento de Listas (Whitelist, Banlist, Priority)</h3>
+                <p class="text-gray-300 mb-2">
+                    Gerencia listas de acesso para o servidor Nitrado (whitelist, banlist, priority list) com uma interface interativa.
+                </p>
+                <ul class="list-disc list-inside text-gray-300 mb-2">
+                    <li><strong>Interface:</strong> Acessada pelo comando <code>/lists</code>, que abre um embed com um dropdown para selecionar o tipo de lista e botões para adicionar/remover/exibir/resetar listas.</li>
+                    <li><strong>Detalhes:</strong> Adicionar/remover jogadores usa modals e dropdowns; as atualizações são sincronizadas com o servidor Nitrado via API.</li>
+                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar listas e a biblioteca <code>requests</code> para interagir com a API da Nitrado.</li>
+                </ul>
+            </div>
+
+            <!-- Funcionalidade 4: Interface Administrativa -->
+            <div>
+                <h3 class="text-2xl text-gray-200 mb-2"><i class="fas fa-cog icon mr-2"></i> Interface Administrativa</h3>
+                <p class="text-gray-300 mb-2">
+                    Fornece ferramentas administrativas para configuração do bot.
+                </p>
+                <ul class="list-disc list-inside text-gray-300 mb-2">
+                    <li><strong>Interface:</strong> Acessada pelo comando <code>/admin</code>, que abre um embed com botões para configurar canais e criar canais padrão.</li>
+                    <li><strong>Detalhes:</strong> A configuração de canais usa um modal para inserir IDs dos canais; canais padrão podem ser criados com um botão.</li>
+                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar configurações.</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Seção: Testes a Realizar -->
+        <section class="card">
+            <h2 class="text-3xl section-title text-gray-200">
+                <i class="fas fa-flask icon mr-2"></i> Testes a Realizar
+            </h2>
+            <p class="text-gray-300 mb-4">
+                Para garantir que o bot funcione corretamente, os seguintes testes devem ser realizados em um servidor de teste no Discord:
+            </p>
+            <ul class="list-decimal list-inside text-gray-300 mb-4">
+                <li>
+                    <strong>Testar a Interface de Logs (<code>/logs</code>):</strong>
+                    <ul class="list-disc list-inside ml-6">
+                        <li>Iniciar os killfeeds PvE e PvP e simular mortes no servidor DayZ para verificar se as notificações aparecem nos canais corretos.</li>
+                        <li>Ativar/desativar a exibição de localização e verificar se os links do iZurvive são incluídos/excluídos conforme esperado.</li>
+                        <li>Alterar mapas (Chernarus/Livonia) e confirmar se os links são atualizados corretamente.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Testar o Sistema de Procurados (<code>/procurados</code>):</strong>
+                    <ul class="list-disc list-inside ml-6">
+                        <li>Adicionar um jogador procurado usando o modal e verificar a notificação no canal configurado.</li>
+                        <li>Remover um jogador procurado e confirmar se a lista é atualizada.</li>
+                        <li>Ativar atualizações periódicas de localização e verificar se os embeds são enviados a cada 5 minutos.</li>
+                        <li>Testar restrições de permissão tentando usar o comando com um papel não autorizado.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Testar o Gerenciamento de Listas (<code>/lists</code>):</strong>
+                    <ul class="list-disc list-inside ml-6">
+                        <li>Adicionar jogadores às listas whitelist, banlist e priority list, e verificar as atualizações no MongoDB e no servidor Nitrado.</li>
+                        <li>Remover jogadores e confirmar se as listas são atualizadas.</li>
+                        <li>Resetar uma lista e garantir que ela é limpa no MongoDB e no Nitrado.</li>
+                        <li>Testar restrições de permissão.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Testar a Interface Administrativa (<code>/admin</code>):</strong>
+                    <ul class="list-disc list-inside ml-6">
+                        <li>Criar canais padrão e verificar se eles aparecem no servidor.</li>
+                        <li>Configurar IDs de canais usando o modal e confirmar se as configurações são salvas no MongoDB.</li>
+                        <li>Testar restrições de permissão.</li>
+                    </ul>
+                </li>
+                <li>
+                    <strong>Testes Gerais:</strong>
+                    <ul class="list-disc list-inside ml-6">
+                        <li>Garantir que todos os botões, dropdowns e modals funcionem sem erros.</li>
+                        <li>Verificar se o bot lida com erros de forma elegante (ex.: falhas na API da Nitrado).</li>
+                        <li>Testar a responsividade com múltiplos usuários interagindo simultaneamente.</li>
+                    </ul>
+                </li>
+            </ul>
+        </section>
+
+        <!-- Seção: Melhorias Futuras -->
+        <section class="card">
+            <h2 class="text-3xl section-title text-gray-200">
+                <i class="fas fa-lightbulb icon mr-2"></i> Melhorias Futuras
+            </h2>
+            <p class="text-gray-300 mb-4">
+                Possíveis melhorias para o bot com base na versão original em JavaScript e requisitos adicionais:
+            </p>
+            <ul class="list-disc list-inside text-gray-300">
+                <li>Adicionar um sistema de economia (ex.: DzCoins) e uma loja, como visto no bot "raiox".</li>
+                <li>Implementar mapas de calor para atividades PvP/PvE usando APIs externas ou bibliotecas.</li>
+                <li>Melhorar os embeds com emojis personalizados e elementos visuais mais ricos.</li>
+                <li>Adicionar suporte para tarefas agendadas (ex.: reinícios de servidor), como no bot "raiox".</li>
+            </ul>
+        </section>
+    </main>
+
+    <footer class="text-center py-6 text-gray-400 bg-gray-900 bg-opacity-50 backdrop-blur-md">
+        <p>© 2025 Bot-Manager-DayZ Project</p>
+        <p>Criado por: CodeProjects</p>
+        <p>Modificado por: CodeProjects</p>
+        <p>Data da Modificação: 06/03/2025</p>
+        <p>Versão: 1.0</p>
+        <p>Desenvolvedores da Versão: CodeProjects e RedeGamer - Serviços Escaláveis para seu Game</p>
+    </footer>
+</body>
+</html>
