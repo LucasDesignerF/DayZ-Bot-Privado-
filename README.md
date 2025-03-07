@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://imgur.com/Vlxf8T7" alt="Bot-Manager-DayZ Banner" width="400" style="border-radius: 50%; box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);"/>
+  <img src="https://imgur.com/Vlxf8T7.png" alt="Bot-Manager-DayZ Banner" width="400" style="border-radius: 50%; box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);"/>
 </p>
 
 <h1 align="center">☠️ Bot-Manager-DayZ</h1>
