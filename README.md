@@ -1,22 +1,40 @@
-
 # Bot-Manager-DayZ
 
-O projeto Bot-Manager-DayZ é um bot para Discord desenvolvido para gerenciar servidores DayZ hospedados na Nitrado. Ele foi inicialmente baseado num bot JavaScript chamado DayZero KillFeed, mas foi totalmente reescrito em Python usando a biblioteca Nextcord para interações no Discord, PyMongo para gerenciamento de banco de dados MongoDB e uma estrutura modular com cogs.
+<div style="text-align: center; padding: 20px;">
+    <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d8827203-d7df-4f8f-a846-62430fe5169d/d59zm2x-29cd82d0-3b58-4023-8bfd-50fea4cef6be.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4ODI3MjAzLWQ3ZGYtNGY4Zi1hODQ2LTYyNDMwZmU1MTY5ZFwvZDU5em0yeC0yOWNkODJkMC0zYjU4LTQwMjMtOGJmZC01MGZlYTRjZWY2YmUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OSJ3kN9ISyZFyUotHlbt2L91g-oyVCJ2k0UOP4Rkno0" alt="Logo DayZ" style="max-width: 300px; margin-bottom: 20px;">
+    <h1 style="font-size: 2.5em; color: #e5e5e5; font-weight: bold; text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);">
+        <i class="fas fa-skull-crossbones" style="color: #8b0000; margin-right: 10px;"></i> Bot-Manager-DayZ
+    </h1>
+    <p style="font-size: 1.2em; color: #b3b3b3;">Um Bot Moderno para Servidores DayZ no Discord</p>
+    <a href="https://dayz-doc.redebots.shop/" target="_blank" style="display: inline-block; background-color: #8b0000; color: #fff; padding: 10px 20px; border-radius: 5px; text-decoration: none; margin-top: 10px; transition: background-color 0.3s;">Ver Documentação Completa</a>
+</div>
+
+---
+
+<div style="background-color: rgba(34, 34, 34, 0.95); border: 1px solid #444; border-radius: 0.5rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); color: #e5e5e5;">
 
 ## Visão Geral do Projeto
 
-O bot foi projetado com foco em três prioridades principais definidas pelo cliente:
+O projeto <span style="background-color: #4a2c2a; padding: 0.5rem; border-radius: 0.3rem;">Bot-Manager-DayZ</span> é um bot para Discord desenvolvido para gerenciar servidores DayZ hospedados na Nitrado. Ele foi inicialmente baseado num bot JavaScript chamado <span style="background-color: #4a2c2a; padding: 0.5rem; border-radius: 0.3rem;">DayZero KillFeed</span>, mas foi totalmente reescrito em Python usando a biblioteca <span style="background-color: #4a2c2a; padding: 0.5rem; border-radius: 0.3rem;">Nextcord</span> para interações no Discord, <span style="background-color: #4a2c2a; padding: 0.5rem; border-radius: 0.3rem;">PyMongo</span> para gerenciamento de banco de dados MongoDB e uma estrutura modular com cogs.
+
+### Prioridades do Cliente
 - **Logs detalhados de mortes PvE:** Notificações detalhadas com localização no mapa usando links para o iZurvive.
 - **Logs detalhados de mortes PvP:** Similar ao PvE, mas com informações sobre assassino, vítima e arma usada.
 - **Sistema de procurados:** Um sistema configurável para adicionar, remover e listar jogadores procurados, com atualizações periódicas de localização.
 
-Além disso, o bot foi redesenhado para usar interfaces modernas e interativas (embeds com botões, menus dropdown e modals) ao invés de depender apenas de comandos slash, melhorando a experiência visual e a usabilidade para os usuários.
+O bot utiliza interfaces modernas com embeds, botões, menus dropdown e modals, melhorando a experiência visual e usabilidade em relação a comandos slash tradicionais.
+
+</div>
+
+---
+
+<div style="background-color: rgba(34, 34, 34, 0.95); border: 1px solid #444; border-radius: 0.5rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); color: #e5e5e5;">
 
 ## Estrutura do Projeto
 
-O projeto está organizado de forma modular para facilitar manutenção e expansão futura. Abaixo está a estrutura de diretórios:
+O projeto é modular para facilitar manutenção e expansão. Veja a estrutura de diretórios:
 
-```
+```plaintext
 Bot-Manager-DayZ/
 │
 ├── cogs/                       # Pasta para os cogs
@@ -41,72 +59,97 @@ Bot-Manager-DayZ/
 └── .env                        # Variáveis de ambiente
 ```
 
+</div>
+
+---
+
+<div style="background-color: rgba(34, 34, 34, 0.95); border: 1px solid #444; border-radius: 0.5rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); color: #e5e5e5;">
+
 ## Funcionalidades Implementadas
 
-### Logs Detalhados de Mortes PvE e PvP
-- **Interface:** Acessada pelo comando `/logs`, que abre um embed com botões para iniciar/parar os killfeeds PvE e PvP, ativar/desativar exibição de localização e selecionar mapas (Chernarus ou Livonia).
-- **Detalhes:** Os logs PvE mostram o jogador, a causa (ex.: zumbi, dano de queda) e a localização; os logs PvP mostram assassino, vítima, arma e localização.
-- **Implementação:** Usa a biblioteca `watchdog` para monitoramento de logs e regex para identificar eventos de morte.
+### <i class="fas fa-scroll" style="color: #8b0000; margin-right: 10px;"></i> Logs Detalhados de Mortes PvE e PvP
+- **Interface:** Comando `/logs` abre um embed com botões para iniciar/parar killfeeds, ativar/desativar localização e selecionar mapas (Chernarus/Livonia).
+- **Detalhes:** PvE exibe jogador, causa e localização; PvP exibe assassino, vítima, arma e localização.
+- **Implementação:** Usa <code>watchdog</code> para monitoramento de logs e regex para parsing.
 
-### Sistema de Procurados
-- **Interface:** Acessada pelo comando `/procurados`, que abre um embed com botões para adicionar/remover/listar procurados, um dropdown para opções como ativar/desativar localização, configurar recompensas e exibir ranking de caçadores.
-- **Detalhes:** Adicionar um jogador abre um modal para inserir nome, motivo e recompensa; as atualizações periódicas (a cada 5 minutos) enviam embeds com localização se ativadas; eventos de conexão/desconexão/morte são monitorados em tempo real (a cada 1 minuto).
-- **Implementação:** Usa MongoDB para armazenar a lista e configurações, tarefas Nextcord para monitoramento, e regex para parsing de logs. A versão 1.9 corrige erros de status e timestamp dos eventos.
+### <i class="fas fa-skull" style="color: #8b0000; margin-right: 10px;"></i> Sistema de Procurados
+- **Interface:** Comando `/procurados` abre um embed com botões para adicionar/remover/listar procurados e um dropdown para opções (localização, recompensas, ranking).
+- **Detalhes:** Modal para adicionar jogador (nome, motivo, recompensa); atualizações a cada 5 minutos; monitoramento de eventos a cada 1 minuto. Versão 1.9 corrige status e timestamp.
+- **Implementação:** MongoDB para armazenamento, tarefas Nextcord e regex para logs.
 
-### Gerenciamento de Listas (Whitelist, Banlist, Priority)
-- **Interface:** Acessada pelo comando `/lists`, que abre um embed com um dropdown para selecionar o tipo de lista e botões para adicionar/remover/exibir/resetar listas.
-- **Detalhes:** Adicionar/remover jogadores usa modals e dropdowns; as atualizações são sincronizadas com o servidor Nitrado via API.
-- **Implementação:** Usa MongoDB para armazenar listas e a biblioteca `requests` para interagir com a API da Nitrado.
+### <i class="fas fa-list" style="color: #8b0000; margin-right: 10px;"></i> Gerenciamento de Listas (Whitelist, Banlist, Priority)
+- **Interface:** Comando `/lists` abre um embed com dropdown para tipo de lista e botões para gerenciar.
+- **Detalhes:** Modals e dropdowns para adicionar/remover; sincronização com Nitrado via API.
+- **Implementação:** MongoDB para listas e <code>requests</code> para API.
 
-### Interface Administrativa
-- **Interface:** Acessada pelo comando `/admin`, que abre um embed com botões para configurar canais e criar canais padrão, além do comando `/admin_clear` para limpar mensagens.
-- **Detalhes:** A configuração de canais usa um modal para inserir IDs; o botão "Criar Canais Padrão" agora exibe um dropdown para escolher a categoria antes de criar os canais `🐕┃𝖬𝗈𝗋𝗍𝖾𝗌-𝖯𝖵𝖤`, `👻┃𝖬𝗈𝗋𝗍𝖾𝗌-𝖯𝖵𝖯` e `🕵️┃𝖯𝗋𝗈𝖼𝗎𝗋𝖺𝖽𝗈𝗌`. Versão 1.1 implementa essa funcionalidade.
-- **Implementação:** Usa MongoDB para armazenar configurações e Nextcord para criar canais com categoria.
+### <i class="fas fa-cog" style="color: #8b0000; margin-right: 10px;"></i> Interface Administrativa
+- **Interface:** Comando `/admin` abre um embed com botões para configurar canais e criar canais padrão; `/admin_clear` limpa mensagens.
+- **Detalhes:** Modal para IDs de canais; botão cria canais com dropdown de categoria (Versão 1.1).
+- **Implementação:** MongoDB para configurações e Nextcord para canais.
+
+</div>
+
+---
+
+<div style="background-color: rgba(34, 34, 34, 0.95); border: 1px solid #444; border-radius: 0.5rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); color: #e5e5e5;">
 
 ## Testes a Realizar
 
-Para garantir que o bot funcione corretamente, os seguintes testes devem ser realizados em um servidor de teste no Discord com membros online:
-1. **Testar a Interface de Logs (/logs):**
-   - Iniciar os killfeeds PvE e PvP e simular mortes no servidor DayZ para verificar se as notificações aparecem nos canais corretos.
-   - Ativar/desativar a exibição de localização e verificar se os links do iZurvive são incluídos/excluídos conforme esperado.
-   - Alterar mapas (Chernarus/Livonia) e confirmar se os links são atualizados corretamente.
-2. **Testar o Sistema de Procurados (/procurados):**
-   - Adicionar um jogador procurado usando o modal e verificar a notificação no canal configurado.
-   - Remover um jogador e confirmar se a lista é atualizada no MongoDB e no status interno.
-   - Simular conexões/desconexões no servidor DayZ e verificar se os eventos são detectados corretamente com status e timestamp precisos.
-   - Ativar atualizações periódicas de localização e verificar se os embeds são enviados a cada 5 minutos com coordenadas reais (quando disponíveis).
-   - Testar restrições de permissão com usuários sem os papéis "ADM" ou "PM".
-3. **Testar o Gerenciamento de Listas (/lists):**
-   - Adicionar jogadores às listas whitelist, banlist e priority list, e verificar as atualizações no MongoDB e no servidor Nitrado.
-   - Remover jogadores e confirmar se as listas são atualizadas.
-   - Resetar uma lista e garantir que ela é limpa no MongoDB e no Nitrado.
-   - Testar restrições de permissão.
-4. **Testar a Interface Administrativa (/admin):**
-   - Criar canais padrão usando o botão e verificar se o dropdown de categorias aparece e se os canais são criados na categoria selecionada.
-   - Configurar IDs de canais usando o modal e confirmar se as configurações são salvas no MongoDB.
-   - Usar `/admin_clear` pra limpar mensagens e verificar se até 100 mensagens são removidas.
-   - Testar restrições de permissão com usuários sem o papel "ADM".
+Testes a serem feitos com membros online em um servidor de teste:
+1. **Interface de Logs (/logs):**
+   - Simular mortes e verificar notificações nos canais corretos.
+   - Testar exibição de localização e troca de mapas.
+2. **Sistema de Procurados (/procurados):**
+   - Adicionar/remover jogadores e verificar notificações e lista.
+   - Simular eventos (conexão/desconexão) e checar status/timestamp.
+   - Testar atualizações periódicas e permissões.
+3. **Gerenciamento de Listas (/lists):**
+   - Adicionar/remover/resetar listas e verificar MongoDB/Nitrado.
+   - Testar permissões.
+4. **Interface Administrativa (/admin):**
+   - Criar canais padrão com dropdown e verificar localização.
+   - Configurar IDs e limpar mensagens; testar permissões.
 5. **Testes Gerais:**
-   - Garantir que todos os botões, dropdowns e modals funcionem sem erros.
-   - Verificar se o bot lida com erros de forma elegante (ex.: falhas na API da Nitrado ou permissões insuficientes).
-   - Testar a responsividade com múltiplos usuários interagindo simultaneamente.
+   - Checar funcionamento de botões/dropdowns/modals.
+   - Verificar tratamento de erros e responsividade.
+
+</div>
+
+---
+
+<div style="background-color: rgba(34, 34, 34, 0.95); border: 1px solid #444; border-radius: 0.5rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); color: #e5e5e5;">
 
 ## Melhorias Futuras
 
-Possíveis melhorias para o bot com base na versão original em JavaScript e requisitos adicionais:
-- Adicionar um sistema de economia (ex.: DzCoins) e uma loja, como visto no bot "raiox".
-- Implementar mapas de calor para atividades PvP/PvE usando APIs externas ou bibliotecas.
-- Melhorar os embeds com emojis personalizados e elementos visuais mais ricos.
-- Adicionar suporte para tarefas agendadas (ex.: reinícios de servidor), como no bot "raiox".
+- Sistema de economia (DzCoins) e loja (inspirado no "raiox").
+- Mapas de calor para atividades PvP/PvE.
+- Embeds com emojis personalizados e visuais ricos.
+- Suporte para tarefas agendadas (ex.: reinícios).
+
+</div>
+
+---
+
+<div style="background-color: rgba(34, 34, 34, 0.95); border: 1px solid #444; border-radius: 0.5rem; padding: 2rem; margin: 2rem 0; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); color: #e5e5e5;">
 
 ## Licença
 
 Este projeto é licenciado sob os termos da licença MIT.
 
-## Desenvolvedores
+</div>
 
-- Criado por: CodeProjects
-- Modificado por: CodeProjects
-- Data da Modificação: 07/03/2025
-- Versão: 1.1
-- Desenvolvedores da Versão: CodeProjects e RedeGamer - Serviços Escaláveis para seu Game
+---
+
+<div style="text-align: center; padding: 20px; background-color: rgba(139, 0, 0, 0.5); color: #b3b3b3; border-radius: 0.5rem;">
+    <p>© 2025 Bot-Manager-DayZ Project</p>
+    <p>Criado por: CodeProjects</p>
+    <p>Modificado por: CodeProjects</p>
+    <p>Data da Modificação: 07/03/2025</p>
+    <p>Versão: 1.1</p>
+    <p>Desenvolvedores da Versão: CodeProjects e RedeGamer - Serviços Escaláveis para seu Game</p>
+</div>
+
+<!-- FontAwesome para ícones -->
+<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+```
+
