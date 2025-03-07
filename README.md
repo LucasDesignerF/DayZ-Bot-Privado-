@@ -48,27 +48,27 @@ O **Bot-Manager-DayZ** é um bot Discord projetado para gerenciar servidores Day
 ## 📋 Estrutura do Projeto
 
 Bot-Manager-DayZ/
-│
-├── cogs/                       # Módulos interativos
-│   ├── interfaces/             # Interfaces do bot
-│   │   ├── logs_interface.py   # Logs PvE/PvP
-│   │   ├── wanted_interface.py # Sistema de procurados (v1.9)
-│   │   ├── lists_interface.py  # Gerenciamento de listas
-│   │   └── admin_interface.py  # Administração (v1.1)
-│   ├── utils/                  # Utilitários
-│   │   ├── api_manager.py      # API Nitrado
-│   │   ├── map_utils.py        # Mapas e localização
-│   │   └── db_manager.py       # Banco de dados
-│
-├── config/                     # Configurações
-│   └── config.py
-│
-├── logs/                       # Logs do servidor
-│   └── log.ADM
-│
-├── main.py                     # Arquivo principal
-├── requirements.txt            # Dependências
-└── .env                        # Variáveis de ambiente
+│                                                                  │ 
+├── cogs/                       # Módulos interativos              │ 
+│   ├── interfaces/             # Interfaces do bot                │ 
+│       ├── logs_interface.py   # Logs PvE/PvP                     │  
+│       ├── wanted_interface.py # Sistema de procurados(v1.9)      │  
+│   │   ├── lists_interface.py  # Gerenciamento de listas          │         
+│   │   └── admin_interface.py  # Administração (v1.1)             │ 
+│   ├── utils/                  # Utilitários                      │ 
+│   │   ├── api_manager.py      # API Nitrado                      │ 
+│   │   ├── map_utils.py        # Mapas e localização              │ 
+│   │   └── db_manager.py       # Banco de dados                   │ 
+│                                                                  │ 
+├── config/                     # Configurações                    │ 
+│   └── config.py                                                  │ 
+│                                                                  │ 
+├── logs/                       # Logs do servidor                 │ 
+│   └── log.ADM                                                    │
+│                                                                  │
+├── main.py                     # Arquivo principal                │
+├── requirements.txt            # Dependências                     │
+└── .env                        # Variáveis de ambiente            │
 ---
 
 ## 🖼️ Como Funciona
