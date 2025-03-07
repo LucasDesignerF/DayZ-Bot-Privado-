@@ -1,4 +1,74 @@
+<p align="center">
+  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d8827203-d7df-4f8f-a846-62430fe5169d/d59zm2x-29cd82d0-3b58-4023-8bfd-50fea4cef6be.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4ODI3MjAzLWQ3ZGYtNGY4Zi1hODQ2LTYyNDMwZmU1MTY5ZFwvZDU5em0yeC0yOWNkODJkMC0zYjU4LTQwMjMtOGJmZC01MGZlYTRjZWY2YmUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OSJ3kN9ISyZFyUotHlbt2L91g-oyVCJ2k0UOP4Rkno0" alt="Bot-Manager-DayZ Banner" width="400" style="border-radius: 50%; box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);"/>
+</p>
 
+<h1 align="center">☠️ Bot-Manager-DayZ</h1>
+<p align="center">
+  <strong>Um bot moderno e poderoso para gerenciar servidores DayZ no Discord.</strong><br>
+  Desenvolvido por <a href="https://github.com/CodeProjects">CodeProjects</a> | Parceiro <a href="https://discord.gg/redegamer">RedeGamer</a>
+</p>
+
+<p align="center">
+  <a href="https://dayz-doc.redebots.shop/"><img src="https://img.shields.io/badge/Documentação-Live-brightgreen?style=for-the-badge&logo=readme" alt="Documentação Live"/></a>
+  <a href="https://github.com/CodeProjects/Bot-Manager-DayZ"><img src="https://img.shields.io/github/stars/CodeProjects/Bot-Manager-DayZ?style=for-the-badge&logo=github&color=yellow" alt="GitHub Stars"/></a>
+  <a href="https://github.com/CodeProjects/Bot-Manager-DayZ/fork"><img src="https://img.shields.io/github/forks/CodeProjects/Bot-Manager-DayZ?style=for-the-badge&logo=github&color=orange" alt="GitHub Forks"/></a>
+  <a href="https://github.com/CodeProjects/Bot-Manager-DayZ/issues"><img src="https://img.shields.io/github/issues/CodeProjects/Bot-Manager-DayZ?style=for-the-badge&logo=github&color=red" alt="GitHub Issues"/></a>
+  <a href="https://discord.gg/redegamer"><img src="https://img.shields.io/badge/Discord-Join%20Us-7289DA?style=for-the-badge&logo=discord" alt="Join Discord"/></a>
+  <img src="https://img.shields.io/badge/Status-Active-brightgreen?style=for-the-badge" alt="Status Active"/>
+  <img src="https://img.shields.io/badge/Version-1.1-blue?style=for-the-badge" alt="Version 1.1"/>
+</p>
+
+---
+
+## 🚀 Sobre o Projeto
+
+O **Bot-Manager-DayZ** é um bot Discord projetado para gerenciar servidores DayZ hospedados na Nitrado. Inspirado no antigo *DayZero KillFeed* (JavaScript), foi reescrito em Python com uma arquitetura modular baseada em cogs, usando **Nextcord** para interações e **PyMongo** para banco de dados MongoDB. O foco é oferecer uma experiência interativa com embeds, botões, menus dropdown e modals.
+
+### 🎯 Funcionalidades Principais
+- **Logs de Mortes PvE/PvP**: Notificações detalhadas com localização via iZurvive.
+- **Sistema de Procurados**: Gerencie jogadores procurados com recompensas e atualizações periódicas.
+- **Gerenciamento de Listas**: Controle whitelist, banlist e priority com sincronização Nitrado.
+- **Interface Administrativa**: Configure canais e crie estruturas padrão com facilidade.
+
+---
+
+## 🛠️ Tecnologias Utilizadas
+
+| Tecnologia       | Descrição                          |
+|------------------|------------------------------------|
+| **Python**       | Linguagem principal                |
+| **Nextcord**     | Interações Discord (fork do discord.py) |
+| **PyMongo**      | Banco de dados MongoDB            |
+| **Watchdog**     | Monitoramento de logs             |
+| **Requests**     | Chamadas à API Nitrado            |
+| **Regex**        | Parsing de logs                   |
+
+---
+
+## 📋 Estrutura do Projeto
+
+Bot-Manager-DayZ/
+│
+├── cogs/                       # Módulos interativos
+│   ├── interfaces/             # Interfaces do bot
+│   │   ├── logs_interface.py   # Logs PvE/PvP
+│   │   ├── wanted_interface.py # Sistema de procurados (v1.9)
+│   │   ├── lists_interface.py  # Gerenciamento de listas
+│   │   └── admin_interface.py  # Administração (v1.1)
+│   ├── utils/                  # Utilitários
+│   │   ├── api_manager.py      # API Nitrado
+│   │   ├── map_utils.py        # Mapas e localização
+│   │   └── db_manager.py       # Banco de dados
+│
+├── config/                     # Configurações
+│   └── config.py
+│
+├── logs/                       # Logs do servidor
+│   └── log.ADM
+│
+├── main.py                     # Arquivo principal
+├── requirements.txt            # Dependências
+└── .env                        # Variáveis de ambiente
 ---
 
 ## 🖼️ Como Funciona
