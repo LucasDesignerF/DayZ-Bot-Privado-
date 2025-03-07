@@ -155,9 +155,9 @@ Bot-Manager-DayZ/
 ├── cogs/                       # Pasta para os cogs
 │   ├── interfaces/             # Módulo para interfaces interativas
 │   │   ├── logs_interface.py   # Interface para logs PvE/PvP
-│   │   ├── wanted_interface.py # Interface para sistema de procurados
+│   │   ├── wanted_interface.py # Interface para sistema de procurados (Versão 1.9)
 │   │   ├── lists_interface.py  # Interface para gerenciamento de listas
-│   │   └── admin_interface.py  # Interface para comandos administrativos
+│   │   └── admin_interface.py  # Interface para comandos administrativos (Versão 1.1)
 │   ├── utils/                  # Módulo para utilitários
 │   │   ├── api_manager.py      # Gerencia chamadas à API da Nitrado
 │   │   ├── map_utils.py        # Funções para lidar com mapas e localização
@@ -165,6 +165,9 @@ Bot-Manager-DayZ/
 │
 ├── config/                     # Configurações
 │   └── config.py               # Arquivo de configuração
+│
+├── logs/                       # Pasta para logs baixados
+│   └── log.ADM                 # Log administrativo do servidor
 │
 ├── main.py                     # Arquivo principal
 ├── requirements.txt            # Dependências
@@ -195,12 +198,12 @@ Bot-Manager-DayZ/
             <div class="mb-6">
                 <h3 class="text-2xl text-gray-200 mb-2"><i class="fas fa-skull icon mr-2"></i> Sistema de Procurados</h3>
                 <p class="text-gray-300 mb-2">
-                    Um sistema configurável para gerenciar uma lista de jogadores procurados, com permissões restritas a papéis específicos (ex.: Admin, PM).
+                    Um sistema configurável para gerenciar uma lista de jogadores procurados, com permissões restritas a papéis específicos (ex.: "ADM", "PM").
                 </p>
                 <ul class="list-disc list-inside text-gray-300 mb-2">
-                    <li><strong>Interface:</strong> Acessada pelo comando <code>/procurados</code>, que abre um embed com botões para adicionar/remover/listar procurados e ativar/desativar atualizações periódicas de localização.</li>
-                    <li><strong>Detalhes:</strong> Adicionar um jogador abre um modal para inserir nome e motivo; as atualizações periódicas (a cada 5 minutos) enviam embeds com localização, se ativadas.</li>
-                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar a lista de procurados e tarefas do Nextcord para atualizações periódicas.</li>
+                    <li><strong>Interface:</strong> Acessada pelo comando <code>/procurados</code>, que abre um embed com botões para adicionar/remover/listar procurados, um dropdown para opções como ativar/desativar localização, configurar recompensas e exibir ranking de caçadores.</li>
+                    <li><strong>Detalhes:</strong> Adicionar um jogador abre um modal para inserir nome, motivo e recompensa; as atualizações periódicas (a cada 5 minutos) enviam embeds com localização se ativadas; eventos de conexão/desconexão/morte são monitorados em tempo real (a cada 1 minuto).</li>
+                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar a lista e configurações, tarefas Nextcord para monitoramento, e regex para parsing de logs. A versão 1.9 corrige erros de status e timestamp dos eventos.</li>
                 </ul>
             </div>
 
@@ -224,9 +227,9 @@ Bot-Manager-DayZ/
                     Fornece ferramentas administrativas para configuração do bot.
                 </p>
                 <ul class="list-disc list-inside text-gray-300 mb-2">
-                    <li><strong>Interface:</strong> Acessada pelo comando <code>/admin</code>, que abre um embed com botões para configurar canais e criar canais padrão.</li>
-                    <li><strong>Detalhes:</strong> A configuração de canais usa um modal para inserir IDs dos canais; canais padrão podem ser criados com um botão.</li>
-                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar configurações.</li>
+                    <li><strong>Interface:</strong> Acessada pelo comando <code>/admin</code>, que abre um embed com botões para configurar canais e criar canais padrão, além do comando <code>/admin_clear</code> para limpar mensagens.</li>
+                    <li><strong>Detalhes:</strong> A configuração de canais usa um modal para inserir IDs; o botão "Criar Canais Padrão" agora exibe um dropdown para escolher a categoria antes de criar os canais <code>🐕┃𝖬𝗈𝗋𝗍𝖾𝗌-𝖯𝖵𝖤</code>, <code>👻┃𝖬𝗈𝗋𝗍𝖾𝗌-𝖯𝖵𝖯</code> e <code>🕵️┃𝖯𝗋𝗈𝖼𝗎𝗋𝖺𝖽𝗈𝗌</code>. Versão 1.1 implementa essa funcionalidade.</li>
+                    <li><strong>Implementação:</strong> Usa MongoDB para armazenar configurações e Nextcord para criar canais com categoria.</li>
                 </ul>
             </div>
         </section>
@@ -237,7 +240,7 @@ Bot-Manager-DayZ/
                 <i class="fas fa-flask icon mr-2"></i> Testes a Realizar
             </h2>
             <p class="text-gray-300 mb-4">
-                Para garantir que o bot funcione corretamente, os seguintes testes devem ser realizados em um servidor de teste no Discord:
+                Para garantir que o bot funcione corretamente, os seguintes testes devem ser realizados em um servidor de teste no Discord com membros online:
             </p>
             <ul class="list-decimal list-inside text-gray-300 mb-4">
                 <li>
@@ -252,9 +255,10 @@ Bot-Manager-DayZ/
                     <strong>Testar o Sistema de Procurados (<code>/procurados</code>):</strong>
                     <ul class="list-disc list-inside ml-6">
                         <li>Adicionar um jogador procurado usando o modal e verificar a notificação no canal configurado.</li>
-                        <li>Remover um jogador procurado e confirmar se a lista é atualizada.</li>
-                        <li>Ativar atualizações periódicas de localização e verificar se os embeds são enviados a cada 5 minutos.</li>
-                        <li>Testar restrições de permissão tentando usar o comando com um papel não autorizado.</li>
+                        <li>Remover um jogador e confirmar se a lista é atualizada no MongoDB e no status interno.</li>
+                        <li>Simular conexões/desconexões no servidor DayZ e verificar se os eventos são detectados corretamente com status e timestamp precisos.</li>
+                        <li>Ativar atualizações periódicas de localização e verificar se os embeds são enviados a cada 5 minutos com coordenadas reais (quando disponíveis).</li>
+                        <li>Testar restrições de permissão com usuários sem os papéis "ADM" ou "PM".</li>
                     </ul>
                 </li>
                 <li>
@@ -269,16 +273,17 @@ Bot-Manager-DayZ/
                 <li>
                     <strong>Testar a Interface Administrativa (<code>/admin</code>):</strong>
                     <ul class="list-disc list-inside ml-6">
-                        <li>Criar canais padrão e verificar se eles aparecem no servidor.</li>
+                        <li>Criar canais padrão usando o botão e verificar se o dropdown de categorias aparece e se os canais são criados na categoria selecionada.</li>
                         <li>Configurar IDs de canais usando o modal e confirmar se as configurações são salvas no MongoDB.</li>
-                        <li>Testar restrições de permissão.</li>
+                        <li>Usar <code>/admin_clear</code> pra limpar mensagens e verificar se até 100 mensagens são removidas.</li>
+                        <li>Testar restrições de permissão com usuários sem o papel "ADM".</li>
                     </ul>
                 </li>
                 <li>
                     <strong>Testes Gerais:</strong>
                     <ul class="list-disc list-inside ml-6">
                         <li>Garantir que todos os botões, dropdowns e modals funcionem sem erros.</li>
-                        <li>Verificar se o bot lida com erros de forma elegante (ex.: falhas na API da Nitrado).</li>
+                        <li>Verificar se o bot lida com erros de forma elegante (ex.: falhas na API da Nitrado ou permissões insuficientes).</li>
                         <li>Testar a responsividade com múltiplos usuários interagindo simultaneamente.</li>
                     </ul>
                 </li>
@@ -306,8 +311,8 @@ Bot-Manager-DayZ/
         <p>© 2025 Bot-Manager-DayZ Project</p>
         <p>Criado por: CodeProjects</p>
         <p>Modificado por: CodeProjects</p>
-        <p>Data da Modificação: 06/03/2025</p>
-        <p>Versão: 1.0</p>
+        <p>Data da Modificação: 07/03/2025</p>
+        <p>Versão: 1.1</p>
         <p>Desenvolvedores da Versão: CodeProjects e RedeGamer - Serviços Escaláveis para seu Game</p>
     </footer>
 </body>
