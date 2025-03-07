@@ -47,6 +47,7 @@ O **Bot-Manager-DayZ** é um bot Discord projetado para gerenciar servidores Day
 
 ## 📋 Estrutura do Projeto
 
+```PY
 Bot-Manager-DayZ/
 │                                                                  │ 
 ├── cogs/                       # Módulos interativos              │ 
@@ -69,6 +70,7 @@ Bot-Manager-DayZ/
 ├── main.py                     # Arquivo principal                │
 ├── requirements.txt            # Dependências                     │
 └── .env                        # Variáveis de ambiente            │
+```
 ---
 
 ## 🖼️ Como Funciona
