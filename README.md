@@ -67,28 +67,28 @@ Bot-Manager-DayZ/
     <div style="position: absolute; top: -15px; left: 20px; background: #8b0000; padding: 5px 15px; border-radius: 5px; color: #fff; font-weight: bold;">Funcionalidades</div>
     <h2 style="font-size: 2em; color: #e5e5e5; margin-bottom: 1rem; text-shadow: 1px 1px 5px rgba(139, 0, 0, 0.5);"><i class="fas fa-check-circle" style="color: #8b0000; margin-right: 10px;"></i> Funcionalidades Implementadas</h2>
     
-    <div style="margin-bottom: 1.5rem;">
+<div style="margin-bottom: 1.5rem;">
         <h3 style="font-size: 1.5em; color: #e5e5e5;"><i class="fas fa-scroll" style="color: #8b0000; margin-right: 10px;"></i> Logs PvE e PvP</h3>
         <p><strong>Interface:</strong> <code>/logs</code> com botões para killfeeds e mapas.</p>
         <p><strong>Detalhes:</strong> PvE: jogador, causa, localização; PvP: assassino, vítima, arma.</p>
         <p><strong>Implementação:</strong> <code>watchdog</code> e regex.</p>
     </div>
     
-    <div style="margin-bottom: 1.5rem;">
+<div style="margin-bottom: 1.5rem;">
         <h3 style="font-size: 1.5em; color: #e5e5e5;"><i class="fas fa-skull" style="color: #8b0000; margin-right: 10px;"></i> Sistema de Procurados</h3>
         <p><strong>Interface:</strong> <code>/procurados</code> com botões e dropdown.</p>
         <p><strong>Detalhes:</strong> Modal para adicionar; atualizações a cada 5min; eventos a cada 1min (Versão 1.9).</p>
         <p><strong>Implementação:</strong> MongoDB, Nextcord, regex.</p>
     </div>
     
-    <div style="margin-bottom: 1.5rem;">
+<div style="margin-bottom: 1.5rem;">
         <h3 style="font-size: 1.5em; color: #e5e5e5;"><i class="fas fa-list" style="color: #8b0000; margin-right: 10px;"></i> Gerenciamento de Listas</h3>
         <p><strong>Interface:</strong> <code>/lists</code> com dropdown e botões.</p>
         <p><strong>Detalhes:</strong> Gerencia whitelist, banlist e priority.</p>
         <p><strong>Implementação:</strong> MongoDB e <code>requests</code>.</p>
     </div>
     
-    <div>
+<div>
         <h3 style="font-size: 1.5em; color: #e5e5e5;"><i class="fas fa-cog" style="color: #8b0000; margin-right: 10px;"></i> Interface Administrativa</h3>
         <p><strong>Interface:</strong> <code>/admin</code> e <code>/admin_clear</code>.</p>
         <p><strong>Detalhes:</strong> Configuração de canais; criação com dropdown (Versão 1.1).</p>
@@ -146,5 +146,4 @@ Bot-Manager-DayZ/
     </div>
 </div>
 
-<!-- FontAwesome para ícones -->
-<script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+
