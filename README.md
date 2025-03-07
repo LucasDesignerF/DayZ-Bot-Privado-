@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/d8827203-d7df-4f8f-a846-62430fe5169d/d59zm2x-29cd82d0-3b58-4023-8bfd-50fea4cef6be.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcL2Q4ODI3MjAzLWQ3ZGYtNGY4Zi1hODQ2LTYyNDMwZmU1MTY5ZFwvZDU5em0yeC0yOWNkODJkMC0zYjU4LTQwMjMtOGJmZC01MGZlYTRjZWY2YmUucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.OSJ3kN9ISyZFyUotHlbt2L91g-oyVCJ2k0UOP4Rkno0" alt="Bot-Manager-DayZ Banner" width="400" style="border-radius: 50%; box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);"/>
+  <img src="https://imgur.com/Vlxf8T7" alt="Bot-Manager-DayZ Banner" width="400" style="border-radius: 50%; box-shadow: 0 0 15px rgba(139, 0, 0, 0.5);"/>
 </p>
 
 <h1 align="center">☠️ Bot-Manager-DayZ</h1>
